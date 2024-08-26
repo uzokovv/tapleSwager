@@ -31,10 +31,15 @@ const Login = () => {
                     }
                 })
                 .catch(err => {
+                    console.log(err);
+                    
                     if (err.response.status === 404) {
                         toast.error('User not found');
                     }else if (err.response.status === 400){
                         toast.error('Incorrect Password');
+                    }
+                    else{
+                        toast.error('Something went wrong');
                     }
                 })
             name.current.value = ''
